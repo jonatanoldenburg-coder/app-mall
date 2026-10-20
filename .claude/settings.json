@@ -1,0 +1,12 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          { "type": "command", "command": "cd \"$CLAUDE_PROJECT_DIR\" && scripts/check.sh >/dev/null 2>&1 || { echo 'Kontrollerna misslyckas efter ändringen. Kör scripts/check.sh och åtgärda.' >&2; exit 2; }" }
+        ]
+      }
+    ]
+  }
+}
